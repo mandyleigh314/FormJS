@@ -98,117 +98,160 @@ let formData = [
 
 let fields = document.querySelector("#fields")
 
-let first = formData[0]
-let last = formData[1]
-let email = formData[2]
-let website = formData[3]
-let language = formData[4]
-let comment = formData[5]
-let mobile = formData[6]
-let home = formData[7]
+// let first = formData[0]
+// let last = formData[1]
+// let email = formData[2]
+// let website = formData[3]
+// let language = formData[4]
+// let comment = formData[5]
+// let mobile = formData[6]
+// let home = formData[7]
+
+for (var i = 0; i < formData.length; i++) {
+  if (formData[i].type === "select") {
+    const anyItem = document.createElement("select")
+    anyItem.id = formData[i].id
+    anyItem.type = formData[i].type
+    anyItem.label = formData[i].label
+    anyItem.placeholder = formData[i].label
+    anyItem.options = formData[i].options
+
+    for (var k = 0; k < formData[i].options.length; k++) {
+      const lang = document.createElement("option")
+      lang.label = formData[i].options[k].label
+      lang.value = formData[i].options[k].value
+
+      anyItem.appendChild(lang)
+    }
+
+    fields.appendChild(anyItem)
+  }
+  else if (formData[i].type === "textarea") {
+    const anyItem = document.createElement("textarea")
+    anyItem.id = formData[i].id
+    anyItem.type = formData[i].type
+    anyItem.label = formData[i].label
+    anyItem.placeholder = formData[i].label
+    anyItem.options = formData[i].options
+
+    fields.appendChild(anyItem)
+  }
+  else {
+  const anyItem = document.createElement("input")
+  anyItem.id = formData[i].id
+  anyItem.type = formData[i].type
+  anyItem.label = formData[i].label
+  anyItem.placeholder = formData[i].label
+  anyItem.options = formData[i].options
+
+  fields.appendChild(anyItem)
+  }
+}
 
 
-const firstName = document.createElement("input")
-firstName.id = first.id
-firstName.type = first.type
-firstName.label = "First Name"
-firstName.placeholder = "First Name"
-firstName.options = []
-
-fields.appendChild(firstName)
-
-const lastName = document.createElement("input")
-lastName.id = last.id
-lastName.type = last.type
-lastName.label = "Last Name"
-lastName.placeholder = "Last Name"
-lastName.options = []
-
-fields.appendChild(lastName)
-
-const emailAddress = document.createElement("input")
-emailAddress.id = email.id
-emailAddress.type = email.type
-emailAddress.label = "Email Address"
-emailAddress.placeholder = "Email Address"
-emailAddress.options = []
-
-fields.appendChild(emailAddress)
-
-const currentWeb = document.createElement("input")
-currentWeb.id = website.id
-currentWeb.type = website.type
-currentWeb.label = "Current website url"
-currentWeb.placeholder = "Current website url"
-currentWeb.options = []
-
-fields.appendChild(currentWeb)
 
 
-const selL = document.createElement("option")
-selL.value = "Select Language"
-selL.textContent = "Select Language"
-
-const enOpt = document.createElement("option")
-enOpt.value = "EN"
-enOpt.textContent = "English"
-
-const frOpt = document.createElement("option")
-frOpt.value = "FR"
-frOpt.textContent = "French"
-
-const spOpt = document.createElement("option")
-spOpt.value = "SP"
-spOpt.textContent = "Spanish"
-
-const chOpt = document.createElement("option")
-chOpt.value = "CH"
-chOpt.textContent = "Chinese"
-
-const jpOpt = document.createElement("option")
-jpOpt.value = "JP"
-jpOpt.textContent = "Japanese"
-
-
-let selectLang = document.createElement("select")
-selectLang.id = language.id
-selectLang.type = language.type
-selectLang.label = "Select Language"
-selectLang.placeholder = "Select Language"
-
-selectLang.appendChild(selL)
-selectLang.appendChild(enOpt)
-selectLang.appendChild(frOpt)
-selectLang.appendChild(spOpt)
-selectLang.appendChild(chOpt)
-selectLang.appendChild(jpOpt)
-
-
-fields.appendChild(selectLang)
-
-const yourComment = document.createElement("textarea")
-yourComment.id = comment.id
-yourComment.type = comment.type
-yourComment.label = "Your comment"
-yourComment.placeholder = "Your comment"
-yourComment.options = []
-
-fields.appendChild(yourComment)
-
-const mobileNumber = document.createElement("input")
-mobileNumber.id = mobile.id
-mobileNumber.type = mobile.type
-mobileNumber.label = "Mobile number"
-mobileNumber.placeholder = "Mobile number"
-mobileNumber.options = []
-
-fields.appendChild(mobileNumber)
-
-const homeNumber = document.createElement("input")
-homeNumber.id = home.id
-homeNumber.type = home.type
-homeNumber.label = "Home number"
-homeNumber.placeholder = "Home number"
-homeNumber.options = []
-
-fields.appendChild(homeNumber)
+// const firstName = document.createElement("input")
+// firstName.id = first.id
+// firstName.type = first.type
+// firstName.label = "First Name"
+// firstName.placeholder = "First Name"
+// firstName.options = []
+//
+// fields.appendChild(firstName)
+//
+// const lastName = document.createElement("input")
+// lastName.id = last.id
+// lastName.type = last.type
+// lastName.label = "Last Name"
+// lastName.placeholder = "Last Name"
+// lastName.options = []
+//
+// fields.appendChild(lastName)
+//
+// const emailAddress = document.createElement("input")
+// emailAddress.id = email.id
+// emailAddress.type = email.type
+// emailAddress.label = "Email Address"
+// emailAddress.placeholder = "Email Address"
+// emailAddress.options = []
+//
+// fields.appendChild(emailAddress)
+//
+// const currentWeb = document.createElement("input")
+// currentWeb.id = website.id
+// currentWeb.type = website.type
+// currentWeb.label = "Current website url"
+// currentWeb.placeholder = "Current website url"
+// currentWeb.options = []
+//
+// fields.appendChild(currentWeb)
+//
+//
+// const selL = document.createElement("option")
+// selL.value = "Select Language"
+// selL.textContent = "Select Language"
+//
+// const enOpt = document.createElement("option")
+// enOpt.value = "EN"
+// enOpt.textContent = "English"
+//
+// const frOpt = document.createElement("option")
+// frOpt.value = "FR"
+// frOpt.textContent = "French"
+//
+// const spOpt = document.createElement("option")
+// spOpt.value = "SP"
+// spOpt.textContent = "Spanish"
+//
+// const chOpt = document.createElement("option")
+// chOpt.value = "CH"
+// chOpt.textContent = "Chinese"
+//
+// const jpOpt = document.createElement("option")
+// jpOpt.value = "JP"
+// jpOpt.textContent = "Japanese"
+//
+//
+// let selectLang = document.createElement("select")
+// selectLang.id = language.id
+// selectLang.type = language.type
+// selectLang.label = "Select Language"
+// selectLang.placeholder = "Select Language"
+//
+// selectLang.appendChild(selL)
+// selectLang.appendChild(enOpt)
+// selectLang.appendChild(frOpt)
+// selectLang.appendChild(spOpt)
+// selectLang.appendChild(chOpt)
+// selectLang.appendChild(jpOpt)
+//
+//
+// fields.appendChild(selectLang)
+//
+// const yourComment = document.createElement("textarea")
+// yourComment.id = comment.id
+// yourComment.type = comment.type
+// yourComment.label = "Your comment"
+// yourComment.placeholder = "Your comment"
+// yourComment.options = []
+//
+// fields.appendChild(yourComment)
+//
+// const mobileNumber = document.createElement("input")
+// mobileNumber.id = mobile.id
+// mobileNumber.type = mobile.type
+// mobileNumber.label = "Mobile number"
+// mobileNumber.placeholder = "Mobile number"
+// mobileNumber.options = []
+//
+// fields.appendChild(mobileNumber)
+//
+// const homeNumber = document.createElement("input")
+// homeNumber.id = home.id
+// homeNumber.type = home.type
+// homeNumber.label = "Home number"
+// homeNumber.placeholder = "Home number"
+// homeNumber.options = []
+//
+// fields.appendChild(homeNumber)
